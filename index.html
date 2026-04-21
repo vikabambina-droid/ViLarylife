@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ВиЛари — Системная опора. Бизнес без выгорания</title>
+  <meta name="description" content="Карта местности для тех, у кого «всё хорошо», но жить в тягость. Система, честность и астрология без пафоса.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F5E6D3; /* Creamy Beige */
+      color: #1E2A24; /* Almost Black */
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-weight: 600;
+      color: #2A5C4A; /* Healing Green */
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section {
+      padding: 3rem 0;
+      border-bottom: 1px solid rgba(42, 92, 74, 0.1);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background-color: #2A5C4A;
+      color: white;
+      padding: 0.875rem 1.75rem;
+      border-radius: 48px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: #C26A4A; /* Warm Terracotta */
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #a8563a;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid #2A5C4A;
+      color: #2A5C4A;
+    }
+
+    .btn-outline:hover {
+      background-color: #2A5C4A;
+      color: white;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 2rem 0 3rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #4a6a5e;
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Grids */
+    .grid-3, .grid-services {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 1.5rem;
+      border-radius: 24px;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-price {
+      font-weight: 700;
+      color: #C26A4A;
+      margin: 0.75rem 0;
+    }
+
+    /* Case studies */
+    .case-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .case-item {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 24px;
+      border-left: 5px solid #C26A4A;
+    }
+
+    .case-item p {
+      margin-bottom: 0.5rem;
+    }
+
+    .case-result {
+      font-weight: 600;
+      color: #2A5C4A;
+    }
+
+    /* FAQ */
+    details {
+      background-color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 0.75rem;
+      padding: 1rem;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+
+    summary {
+      font-weight: 600;
+      color: #2A5C4A;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      font-size: 1.5rem;
+      color: #C26A4A;
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    details p {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(42, 92, 74, 0.2);
+    }
+
+    /* Form */
+    .form-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 32px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.875rem;
+      border: 1px solid #ddd;
+      border-radius: 16px;
+      font-family: inherit;
+      font-size: 1rem;
+      background-color: #fff;
+    }
+
+    .form-message {
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      color: #C26A4A;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.875rem;
+      color: #7A9E9E;
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .grid-3, .grid-services {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .case-grid {
+        flex-direction: row;
+      }
+      .case-item {
+        flex: 1;
+      }
+      h1 {
+        font-size: 3.5rem;
+      }
+      h2 {
+        font-size: 2.5rem;
+      }
+      .section {
+        padding: 4rem 0;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        padding: 0 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<main>
+  <div class="container">
+
+    <!-- Блок 1: Hero -->
+    <section class="section hero">
+      <h1>Я больше так не могу</h1>
+      <p>Как я перестала быть пожарным в бизнесе и собрала себя заново</p>
+      <div class="hero-buttons">
+        <a href="#form" class="btn btn-primary">Записаться на диагностику</a>
+        <a href="#form" class="btn btn-outline">Скачать чек-лист</a>
+      </div>
+    </section>
+
+    <!-- Блок 2: Описание подхода (3 колонки) -->
+    <section class="section">
+      <h2>Системная опора</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>🔧 Разбор винтиков</h3>
+          <p>Выгорание, режим, забота о себе. Маленькие шаги, которые спасают.</p>
+        </div>
+        <div class="card">
+          <h3>⚙️ Система без пожаров</h3>
+          <p>Делегирование, финансы, управление. Как перестать быть пожарным.</p>
+        </div>
+        <div class="card">
+          <h3>🧭 Карта местности</h3>
+          <p>Астрология, ритмы, предназначение. У всего есть причина.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок 3: 3 услуги -->
+    <section class="section">
+      <h2>Как я могу помочь</h2>
+      <div class="grid-services">
+        <div class="card">
+          <h3>Диагностика</h3>
+          <p>60 минут. Разберём твою ситуацию, найдём точки напряжения и дадим первые 3 шага к системе.</p>
+          <div class="service-price">5 000 ₽</div>
+          <a href="#form" class="btn btn-outline" style="width:100%; text-align:center;">Выбрать время</a>
+        </div>
+        <div class="card">
+          <h3>Наставничество</h3>
+          <p>3 месяца индивидуальной работы. Система, делегирование, финансы, профилактика выгорания.</p>
+          <div class="service-price">По запросу</div>
+          <a href="#form" class="btn btn-outline" style="width:100%; text-align:center;">Оставить заявку</a>
+        </div>
+        <div class="card">
+          <h3>Книга</h3>
+          <p>«Я больше так не могу». Карта местности по пересборке жизни и бизнеса. Чек-листы, дневник, план на 30 дней.</p>
+          <div class="service-price">Заказать</div>
+          <a href="#form" class="btn btn-outline" style="width:100%; text-align:center;">Скачать первую главу</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок 4: Кейсы -->
+    <section class="section">
+      <h2>Реальные результаты</h2>
+      <div class="case-grid">
+        <div class="case-item">
+          <p>«Было: работала 24/7, выгорела, бизнес не рос. Стало: внедрила систему делегирования, увеличила доход на 40%, отдыхает по выходным».</p>
+          <p class="case-result">— Елена, Москва</p>
+        </div>
+        <div class="case-item">
+          <p>«Было: страх запусков, вечное "надо", нет системы. Стало: запустила курс за 3 недели, без срывов, с чётким планом».</p>
+          <p class="case-result">— Марина, Санкт-Петербург</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок 5: FAQ -->
+    <section class="section">
+      <h2>Частые вопросы</h2>
+      <details>
+        <summary>А это не очередной «успешный успех»?</summary>
+        <p>Нет. Я не обещаю «миллион за месяц». Я прошла через выгорание, антидепрессанты, крапивницу и диагноз. В моём подходе нет глянца. Есть честность, система и карта местности.</p>
+      </details>
+      <details>
+        <summary>А мне нужно разбираться в астрологии?</summary>
+        <p>Нет. Астрология — опциональный инструмент. Если тебе это не интересно — мы работаем без неё. Я не навязываю.</p>
+      </details>
+      <details>
+        <summary>А если я не готова к 3 месяцам наставничества?</summary>
+        <p>Начни с диагностики. Это безопасный шаг. 60 минут — и у тебя будет карта и план.</p>
+      </details>
+      <details>
+        <summary>А какие гарантии?</summary>
+        <p>Я не даю «волшебных» гарантий. Результат зависит от твоих действий. Но я гарантирую честность, поддержку и систему. Если после диагностики поймёшь, что мы не совпадаем — верну деньги.</p>
+      </details>
+      <details>
+        <summary>А если я из другого города или страны?</summary>
+        <p>Работаю онлайн с любым часовым поясом. Встречи в Zoom / Telegram. Подстраиваюсь под тебя.</p>
+      </details>
+    </section>
+
+    <!-- Блок 6: Форма -->
+    <section id="form" class="section">
+      <div class="form-card">
+        <h2>Хватит тушить пожары</h2>
+        <p style="margin-bottom: 1.5rem;">Начни собирать себя заново. Заполни форму, и я свяжусь с тобой.</p>
+        <form id="leadForm">
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Ваше имя" required>
+          </div>
+          <div class="form-group">
+            <input type="text" id="contact" placeholder="Телефон, email или Telegram" required>
+          </div>
+          <div class="form-group">
+            <textarea id="message" rows="3" placeholder="Чем я могу помочь? (необязательно)"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%">Отправить заявку</button>
+          <div id="formStatus" class="form-message"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© Виктория (ВиЛари), 2026. Карта местности для тех, у кого «всё хорошо», но жить в тягость.</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="#" style="color: #7A9E9E; text-decoration: none;">Политика конфиденциальности</a>
+      </p>
+    </footer>
+
+  </div>
+</main>
+
+<script>
+  document.getElementById('leadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const contact = document.getElementById('contact').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const statusDiv = document.getElementById('formStatus');
+
+    if (!name || !contact) {
+      statusDiv.textContent = 'Пожалуйста, заполните имя и контактные данные.';
+      statusDiv.style.color = '#C26A4A';
+      return;
+    }
+
+    statusDiv.textContent = 'Отправка...';
+    statusDiv.style.color = '#2A5C4A';
+
+    const formData = {
+      type: 'landing_form',
+      name: name,
+      contact: contact,
+      message: message,
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      // Замените URL на ваш реальный Webhook от Make.com или Zapier
+      // await fetch('https://hook.make.com/xxxxxx', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(formData)
+      // });
+
+      console.log('Заявка отправлена:', formData);
+      statusDiv.textContent = 'Спасибо, ' + name + '! Я свяжусь с тобой в ближайшее время. А пока подпишись на мой Telegram-канал: https://t.me/vilary';
+      statusDiv.style.color = '#2A5C4A';
+      document.getElementById('leadForm').reset();
+    } catch (error) {
+      console.error('Ошибка:', error);
+      statusDiv.textContent = 'Произошла ошибка. Попробуй ещё раз или напиши мне в Telegram: @vilary';
+      statusDiv.style.color = '#C26A4A';
+    }
+  });
+</script>
+</body>
+</html>
